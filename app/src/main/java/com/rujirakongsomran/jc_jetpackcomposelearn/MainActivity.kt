@@ -44,30 +44,19 @@ fun DefaultPreview() {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceEvenly
         ) {
             Surface(
                 modifier = Modifier
                     .width(200.dp)
-                    .height(50.dp),
-                color = MaterialTheme.colors.primary
+                    .height(50.dp)
+                    .weight(1f),
+                color = MaterialTheme.colors.secondary
             ) {}
             Surface(
                 modifier = Modifier
                     .width(200.dp)
-                    .height(50.dp),
-                color = MaterialTheme.colors.primary
-            ) {}
-            Surface(
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(50.dp),
-                color = MaterialTheme.colors.primary
-            ) {}
-            Surface(
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(50.dp),
+                    .height(50.dp)
+                    .weight(3f),
                 color = MaterialTheme.colors.primary
             ) {}
         }
