@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rujirakongsomran.jc_jetpackcomposelearn.ui.theme.JC_JetpackComposeLearnTheme
@@ -37,6 +38,16 @@ fun CustomText(text: String) {
     )
 }
 
+@Composable
+fun ColumnScope.CustomItem(weight: Float, color: Color = MaterialTheme.colors.primary) {
+    Surface(
+        modifier = Modifier
+            .width(200.dp)
+            .weight(weight),
+        color = color
+    ) {}
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -45,20 +56,8 @@ fun DefaultPreview() {
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Surface(
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(50.dp)
-                    .weight(1f),
-                color = MaterialTheme.colors.secondary
-            ) {}
-            Surface(
-                modifier = Modifier
-                    .width(200.dp)
-                    .height(50.dp)
-                    .weight(3f),
-                color = MaterialTheme.colors.primary
-            ) {}
+            CustomItem(weight = 3f, color = MaterialTheme.colors.secondary)
+            CustomItem(weight = 1f)
         }
     }
 }
