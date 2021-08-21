@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -43,6 +45,7 @@ fun Greeting() {
                 .background(Color.Blue)
                 .width(100.dp)
                 .height(100.dp)
+                .verticalScroll(rememberScrollState())
         ) {
             Text(
                 text = "I Love Android!",
