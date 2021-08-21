@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.rujirakongsomran.jc_jetpackcomposelearn.ui.theme.JC_JetpackComposeLearnTheme
 import com.rujirakongsomran.jc_jetpackcomposelearn.ui.theme.Typography
 
@@ -33,13 +34,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting() {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.TopCenter
+    ) {
         Box(
             modifier = Modifier
                 .background(Color.Blue)
                 .width(100.dp)
                 .height(100.dp)
-        )
+        ) {
+            Text(
+                text = "I Love Android!",
+                fontSize = 40.sp
+            )
+        }
     }
 }
 
