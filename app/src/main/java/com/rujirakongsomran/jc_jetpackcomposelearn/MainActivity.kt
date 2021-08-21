@@ -3,6 +3,7 @@ package com.rujirakongsomran.jc_jetpackcomposelearn
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -23,10 +24,22 @@ class MainActivity : ComponentActivity() {
             JC_JetpackComposeLearnTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-
+                    Greeting()
                 }
             }
         }
+    }
+}
+
+@Composable
+fun Greeting() {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .background(Color.Blue)
+                .width(100.dp)
+                .height(100.dp)
+        )
     }
 }
 
@@ -39,10 +52,14 @@ fun CustomText(text: String) {
 }
 
 @Composable
-fun ColumnScope.CustomItem(weight: Float, color: Color = MaterialTheme.colors.primary) {
+fun RowScope.CustomItem(
+    weight: Float,
+    color: Color = MaterialTheme.colors.primary
+) {
     Surface(
         modifier = Modifier
-            .width(200.dp)
+            .width(50.dp)
+            .height(50.dp)
             .weight(weight),
         color = color
     ) {}
@@ -50,13 +67,25 @@ fun ColumnScope.CustomItem(weight: Float, color: Color = MaterialTheme.colors.pr
 
 @Preview(showBackground = true)
 @Composable
+fun PreviewGreeting() {
+    JC_JetpackComposeLearnTheme() {
+        Greeting()
+    }
+}
+
+//@Preview(showBackground = true)
+@Composable
 fun DefaultPreview() {
     JC_JetpackComposeLearnTheme {
-        Column(
+        Row(
             modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            CustomItem(weight = 3f, color = MaterialTheme.colors.secondary)
+            CustomItem(
+                weight = 3f,
+                color = MaterialTheme.colors.secondary
+            )
             CustomItem(weight = 1f)
         }
     }
