@@ -42,11 +42,15 @@ fun Greeting() {
     ) {
         Box(
             modifier = Modifier
-                .background(Color.Blue)
-                .width(100.dp)
-                .height(100.dp)
-                .verticalScroll(rememberScrollState())
+                .background(Color.Blue),
+            contentAlignment = Alignment.Center
         ) {
+            Box(
+                modifier = Modifier
+                    .height(50.dp)
+                    .width(50.dp)
+                    .background(Color.Green)
+            )
             Text(
                 text = "I Love Android!",
                 fontSize = 40.sp
