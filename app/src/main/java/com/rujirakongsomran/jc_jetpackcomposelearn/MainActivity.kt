@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
             JC_JetpackComposeLearnTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting()
+
                 }
             }
         }
@@ -82,6 +82,23 @@ fun RowScope.CustomItem(
 }
 
 @Preview(showBackground = true)
+@Composable
+fun PreviewTextCustomization() {
+    JC_JetpackComposeLearnTheme {
+        Column(modifier = Modifier.fillMaxSize()) {
+            Text(
+                text = "Hello World",
+                modifier = Modifier
+                    .background(MaterialTheme.colors.primary)
+                    .padding(16.dp)
+
+
+            )
+        }
+    }
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun PreviewGreeting() {
     JC_JetpackComposeLearnTheme() {
