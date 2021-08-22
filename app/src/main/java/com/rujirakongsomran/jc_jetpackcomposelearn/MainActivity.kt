@@ -135,12 +135,17 @@ fun CustomizationText2() {
     )
 }
 
+@Composable
+fun CustomizationText3() {
+    Text(text = "Hello World!".repeat(20))
+}
+
 @Preview(showBackground = true)
 @Composable
 fun PreviewTextCustomization() {
     JC_JetpackComposeLearnTheme {
         Column(modifier = Modifier.fillMaxSize()) {
-            CustomizationText2()
+            CustomizationText3()
         }
     }
 }
