@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -36,20 +37,21 @@ class MainActivity : ComponentActivity() {
             JC_JetpackComposeLearnTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Column(modifier = Modifier.fillMaxSize()) {
-                        Text(
-                            text = stringResource(id = R.string.app_name),
-                            modifier = Modifier
-                                .background(MaterialTheme.colors.primary)
-                                .padding(16.dp)
-                        )
-                    }
+                    CustomText()
                 }
             }
         }
     }
 }
 
+@Composable
+fun CustomText(){
+    Column {
+        SelectionContainer {
+            Text(text = "Hello World!")
+        }
+    }
+}
 @Composable
 fun Greeting() {
     Box(
@@ -73,14 +75,6 @@ fun Greeting() {
             )
         }
     }
-}
-
-@Composable
-fun CustomText(text: String) {
-    Text(
-        text = text,
-        style = Typography.h5
-    )
 }
 
 @Composable
@@ -145,7 +139,7 @@ fun CustomizationText3() {
     )
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun PreviewTextCustomization() {
     JC_JetpackComposeLearnTheme {
