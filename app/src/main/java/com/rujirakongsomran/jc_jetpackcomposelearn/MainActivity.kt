@@ -22,10 +22,12 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rujirakongsomran.jc_jetpackcomposelearn.ui.theme.JC_JetpackComposeLearnTheme
@@ -38,11 +40,38 @@ class MainActivity : ComponentActivity() {
             JC_JetpackComposeLearnTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    CustomText()
                 }
             }
         }
     }
+}
+
+@Composable
+fun SuperScriptText(
+    normalText: String,
+    normalTextFontSize: TextUnit = MaterialTheme.typography.subtitle1.fontSize,
+    superText: String,
+    superTextFontSize: TextUnit = MaterialTheme.typography.overline.fontSize,
+    superTextFontWeight: FontWeight = FontWeight.Normal
+) {
+    Text(buildAnnotatedString {
+        withStyle(
+            style = SpanStyle(
+                fontSize = normalTextFontSize
+            )
+        ) {
+            append(normalText)
+        }
+        withStyle(
+            style = SpanStyle(
+                fontSize = superTextFontSize,
+                fontWeight = superTextFontWeight,
+                baselineShift = BaselineShift.Superscript
+            )
+        ) {
+            append(superText)
+        }
+    })
 }
 
 @Composable
@@ -178,6 +207,20 @@ fun DefaultPreview() {
                 color = MaterialTheme.colors.secondary
             )
             CustomItem(weight = 1f)
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewSuperScriptText() {
+    JC_JetpackComposeLearnTheme {
+        Column(modifier = Modifier.fillMaxSize()) {
+            SuperScriptText(
+                normalText = "x",
+                superText = "2",
+//                superTextFontWeight = FontWeight.Light
+            )
         }
     }
 }
