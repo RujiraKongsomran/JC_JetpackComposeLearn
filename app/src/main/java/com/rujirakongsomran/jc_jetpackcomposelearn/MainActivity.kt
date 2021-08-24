@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
@@ -45,13 +46,19 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun CustomText(){
-    Column {
-        SelectionContainer {
+fun CustomText() {
+
+    SelectionContainer {
+        Column {
+            Text(text = "Hello World!")
+            DisableSelection {
+                Text(text = "Hello World!")
+            }
             Text(text = "Hello World!")
         }
     }
 }
+
 @Composable
 fun Greeting() {
     Box(
